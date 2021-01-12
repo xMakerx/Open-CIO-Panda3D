@@ -1,6 +1,6 @@
 """DistributedSmoothNode module: contains the DistributedSmoothNode class"""
 
-from pandac.PandaModules import *
+from panda3d.core import *
 from .ClockDelta import *
 from . import DistributedNode
 from . import DistributedSmoothNodeBase

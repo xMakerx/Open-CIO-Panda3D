@@ -207,11 +207,8 @@ class ParticleEffect(NodePath):
     def loadConfig(self, filename):
         fn = Filename(filename)
         vfs = VirtualFileSystem.getGlobalPtr()
-<<<<<<< HEAD
         data = vfs.readFile(filename, 1)
         data = data.replace(b'\r', b'')
-=======
->>>>>>> c52ea9a8dfc08a82e570287321394cf100170956
         try:
             if not vfs.resolveFilename(fn, getModelPath().value) and not fn.isRegularFile():
                 raise FileNotFoundError("could not find particle file: %s" % (filename))

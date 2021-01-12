@@ -1,4 +1,4 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from .MsgTypes import *
 from direct.showbase import ShowBase # __builtin__.config
 from direct.task.TaskManagerGlobal import * # taskMgr
@@ -206,7 +206,7 @@ class AstronInternalRepository(ConnectionRepository):
         dg2 = PyDatagram()
         dg2.addServerControlHeader(CONTROL_ADD_POST_REMOVE)
         dg2.addUint64(self.ourChannel)
-        dg2.addString(dg.getMessage())
+        dg2.addString(str(dg.getMessage()))
         self.send(dg2)
 
     def clearPostRemove(self):
@@ -407,7 +407,7 @@ class AstronInternalRepository(ConnectionRepository):
         unpacker.setUnpackData(di.getRemainingBytes())
 
         # Required:
-        for i in xrange(dclass.getNumInheritedFields()):
+        for i in range(dclass.getNumInheritedFields()):
             field = dclass.getInheritedField(i)
             if not field.isRequired() or field.asMolecularField(): continue
             unpacker.beginUnpack(field)
@@ -416,7 +416,7 @@ class AstronInternalRepository(ConnectionRepository):
 
         # Other:
         other = unpacker.rawUnpackUint16()
-        for i in xrange(other):
+        for i in range(other):
             field = dclass.getFieldByIndex(unpacker.rawUnpackUint16())
             unpacker.beginUnpack(field)
             fields[field.getName()] = field.unpackArgs(unpacker)

@@ -1,4 +1,4 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 from .MsgTypes import *
 from direct.directnotify import DirectNotifyGlobal
 from .ConnectionRepository import ConnectionRepository
@@ -149,7 +149,7 @@ class AstronDatabaseInterface:
             unpacker = DCPacker()
             unpacker.setUnpackData(di.getRemainingBytes())
             fields = {}
-            for x in xrange(fieldCount):
+            for x in range(fieldCount):
                 fieldId = unpacker.rawUnpackInt16()
                 field = dclass.getFieldByIndex(fieldId)
 
@@ -276,7 +276,7 @@ class AstronDatabaseInterface:
             unpacker = DCPacker()
             unpacker.setUnpackData(di.getRemainingBytes())
             fields = {}
-            for x in xrange(fieldCount):
+            for x in range(fieldCount):
                 fieldId = unpacker.rawUnpackInt16()
                 field = self.air.getDcFile().getFieldByIndex(fieldId)
 

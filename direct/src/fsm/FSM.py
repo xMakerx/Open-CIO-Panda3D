@@ -510,11 +510,7 @@ class FSM(DirectObject):
     def __callEnterFunc(self, name, *args):
         # Calls the appropriate enter function when transitioning into
         # a new state, if it exists.
-<<<<<<< HEAD
         assert self._state == None and self.newState == name
-=======
-        assert self.state is None and self.newState == name
->>>>>>> c52ea9a8dfc08a82e570287321394cf100170956
 
         func = getattr(self, "enter" + name, None)
         if not func:
@@ -526,11 +522,7 @@ class FSM(DirectObject):
     def __callFromToFunc(self, oldState, newState, *args):
         # Calls the appropriate fromTo function when transitioning into
         # a new state, if it exists.
-<<<<<<< HEAD
         assert self._state == None and self.oldState == oldState and self.newState == newState
-=======
-        assert self.state is None and self.oldState == oldState and self.newState == newState
->>>>>>> c52ea9a8dfc08a82e570287321394cf100170956
 
         func = getattr(self, "from%sTo%s" % (oldState,newState), None)
         if func:
@@ -541,11 +533,7 @@ class FSM(DirectObject):
     def __callExitFunc(self, name):
         # Calls the appropriate exit function when leaving a
         # state, if it exists.
-<<<<<<< HEAD
         assert self._state == None and self.oldState == name
-=======
-        assert self.state is None and self.oldState == name
->>>>>>> c52ea9a8dfc08a82e570287321394cf100170956
 
         func = getattr(self, "exit" + name, None)
         if not func:

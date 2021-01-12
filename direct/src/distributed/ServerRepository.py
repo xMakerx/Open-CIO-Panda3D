@@ -1,6 +1,6 @@
 """ServerRepository module: contains the ServerRepository class"""
 
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.distributed.MsgTypesCMU import *
 from direct.task import Task
 from direct.task.TaskManagerGlobal import taskMgr
@@ -186,7 +186,7 @@ class ServerRepository:
                 if hasattr(module, "__all__"):
                     importSymbols = module.__all__
                 else:
-                    importSymbols = module.__dict__.keys()
+                    importSymbols = list(module.__dict__.keys())
 
             for symbolName in importSymbols:
                 if hasattr(module, symbolName):
