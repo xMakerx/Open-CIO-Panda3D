@@ -70,3 +70,6 @@ __pycache__/
 /.settings/
 /.cproject
 /.project
+
+# Ignore built/downloaded dependencies
+/embree*/
